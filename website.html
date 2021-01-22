@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="Stylesheet" type="text/css" href="style.css">
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+
+
+
+
+  </script>
+
+
+
+  <title>Blogs</title>
+
+
+</head>
+
+<body>
+
+
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#"></a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="website.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+
+
+
+        <li class="nav-item">
+          <a class="nav-link" href="admin.html">Admin</a>
+        </li>
+
+      </ul>
+
+    </div>
+
+  </nav>
+
+
+
+  <div class="roww">
+
+    <h1 class="top-title">Welcome to my Post</h1>
+  </div>
+  <!--products-->
+  <div id="cardContainer" class="card-deck">
+    <!-- Container that will hold all the cards that creates dynamically -->
+  </div>
+
+
+
+
+
+
+
+  <!--modal-->
+  <div class="modalcontainer">
+    <div class="modal fade" id="modalCar" tabindex="-1" role="dialog" aria-labelledby="txtName" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="txtName"></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+           
+            <h4 id="txtName"></h4>
+            <h5 id="txtText"></h5>
+            <p id="txtDate"></p>
+          </div>
+
+
+          <textarea id="title" type="text " rows="5" cols="10" onkeyup="Allow()">Enter name and your comment here!</textarea>
+
+          <input type="submit" value="POST COMMENT AND NAME" onclick="insert()" /></form>
+          <div id="display"></div>
+
+          <script type="text/javascript">
+
+            var titles = [];
+            var titleInput = document.getElementById("title");
+
+            var messageBox = document.getElementById("display");
+
+            function Allow() {
+              if (!user.title.value.match(/[a-zA-Z]$/) && user.title.value != "") {
+                user.title.value = "";
+                alert("Please Enter only alphabets");
+              }
+
+              window.location.reload()
+            }
+
+            function insert() {
+              titles.push(titleInput.value);
+              clearAndShow();
+            }
+
+            function clearAndShow() {
+              titleInput.value = "";
+              messageBox.innerHTML = "";
+              messageBox.innerHTML += "" + titles.join("<br/> ") + "<br/>";
+            }
+
+          </script>
+
+
+
+
+          <div class="modal-footer">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Footer -->
+  <footer class="footer">
+
+   
+    <div class="container-fluid text-center text-md-left">
+
+   
+      <div class="roww">
+
+       
+        <div class="col-md">
+
+        
+          <h5 class="text-uppercase">Contact us</h5>
+
+          <p class="fot">Phone: 123-12345</p>
+
+        </div>
+    
+
+        <hr class="clearfix w-100 d-md-none pb-3">
+
+
+
+      </div>
+      
+
+    </div>
+
+
+ 
+  </footer>
+ 
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
+  <script src="cart.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+
+  <script>
+
+
+
+
+    window.onload = function () {
+      getBlogs();
+
+    }
+
+
+    function getBlogs() {
+      $.getJSON("/blogs", function (data) {
+        showCards(data);
+      });
+    }
+
+
+    function getBlog(id) {
+      $.getJSON("/blogid/" + id, function (data) {
+        console.log(data.name + " från getBlog");
+        showBlogInForm(data);
+      });
+    }
+
+
+
+
+    function showCards(data) {
+      let cardDeck = $("#cardContainer")
+      cardDeck.empty();
+
+      let cardRow = document.createElement("div");
+      cardRow.setAttribute("class", "row row-cols-1 row-cols-md-3 row-cols-lg-1 row-cols-sm-2");
+
+      for (let i = 0; i < data.length; i++) {
+
+        let cardCol = document.createElement("div");
+        cardCol.setAttribute("class", "col mb-4");
+
+        let card = document.createElement("div");
+        card.setAttribute("class", "card h-100");
+
+        let cardBody = document.createElement("div");
+        cardBody.setAttribute("class", "card-body");
+
+        let cardName = document.createElement("h5");
+        cardName.setAttribute("class", "card-title");
+        cardName.innerHTML += data[i].name;
+
+        let cardDate = document.createElement("h6");
+        cardDate.setAttribute("class", "card-date");
+        cardDate.innerHTML += "Date: " + data[i].date;
+
+        let cardText = document.createElement("p");
+        cardText.setAttribute("class", "card-text");
+        cardText.innerText += data[i].text;
+
+        let cardBtn = document.createElement("button");
+        cardBtn.setAttribute("class", "btn btn-primary");
+        cardBtn.setAttribute("type", "button");
+        cardBtn.setAttribute("data-toggle", "modal");
+        cardBtn.setAttribute("data-target", "#modalCar");
+        cardBtn.addEventListener("click", function () { getBlog(data[i].id) });
+        cardBtn.innerHTML += "Add Comment";
+
+        cardRow.append(cardCol);
+        cardCol.append(card);
+        
+        card.append(cardBody);
+        cardBody.append(cardName);
+        cardBody.append(cardDate);
+        cardBody.append(cardText);
+        cardBody.append(cardBtn);
+      };
+      cardDeck.append(cardRow);
+    }
+
+    function showBlogInForm(data) {
+
+      let myName = document.getElementById("txtName");
+      myName.innerHTML = data.name;
+
+      let myText = document.getElementById("txtText");
+      myText.innerHTML = data.text;
+
+      let myDate = document.getElementById("txtDate");
+      myDate.innerHTML = "Date: " + data.date;
+
+    
+    }
+  </script>
+
+</body>
+
+</html>
